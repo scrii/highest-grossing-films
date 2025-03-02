@@ -79,7 +79,9 @@ document.getElementById('search').addEventListener('input', function(e) {
     const searchTerm = e.target.value.toLowerCase();
     const filtered = movies.filter(movie => 
         movie.title.toLowerCase().includes(searchTerm) ||
+        String(movie.release_year).toLowerCase().includes(searchTerm) ||
         movie.director.toLowerCase().includes(searchTerm) ||
+        formatCurrency(movie.box_office).toLowerCase().includes(searchTerm) ||
         movie.country.toLowerCase().includes(searchTerm)
     );
     renderTable(filtered);
